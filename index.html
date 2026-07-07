@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="SemanticPlan: an agent-driven long-tail simulation benchmark for autonomous driving."
+    />
+    <title>SemanticPlan | Agent-driven Long-tail Simulation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Crimson+Pro:opsz,wght@8..60,500;8..60,650;8..60,750&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero">
+        <p class="venue">SemanticPlan</p>
+        <h1>Agent-driven Long-tail Simulation for Autonomous Driving</h1>
+
+        <div class="authors" aria-label="Authors">
+          <span>Junru Gu<sup>1</sup></span>
+          <span>Lijin Yang<sup>2</sup></span>
+          <span>Jianing Huang<sup>2</sup></span>
+          <span>Shu Liu<sup>2</sup></span>
+          <span>Zhongzhan Huang<sup>2</sup></span>
+          <span>Hang Zhao<sup>1,†</sup></span>
+        </div>
+        <p class="affiliations">
+          <sup>1</sup>IIIS, Tsinghua University&nbsp;&nbsp;&nbsp;
+          <sup>2</sup>Bosch Research
+        </p>
+
+        <div class="button-row">
+          <a class="pill primary" href="#" aria-label="Paper">Paper</a>
+        </div>
+      </header>
+    </div>
+
+    <main>
+      <section class="section video-section" id="method">
+        <p class="kicker">Method</p>
+        <h2>Agent-driven Simulation</h2>
+        <div class="video-card">
+          <video controls preload="metadata" playsinline>
+            <source src="method.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </section>
+
+      <section class="section" id="benchmark">
+        <p class="kicker">Dataset</p>
+        <h2>SemanticPlan Dataset</h2>
+        <div class="video-card dataset-video">
+          <video controls preload="metadata" playsinline>
+            <source src="dataset.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="hero-panel dataset-metrics" aria-label="SemanticPlan dataset overview">
+          <div class="metric-card">
+            <span class="metric-value">50+</span>
+            <span class="metric-label">scenario types</span>
+          </div>
+          <div class="metric-card">
+            <span class="metric-value">230+</span>
+            <span class="metric-label">closed-loop scenarios</span>
+          </div>
+        </div>
+        <div class="track-grid">
+          <article class="track-card collision">
+            <h3>Collision-prone Track</h3>
+            <p>
+              Long-tail cases that test whether the ego can make progress while
+              avoiding collisions.
+            </p>
+          </article>
+          <article class="track-card semantic">
+            <h3>Semantic Track</h3>
+            <p>
+              Evaluates whether ego behavior follows scenario semantics beyond collision
+              avoidance.
+            </p>
+            <div class="semantic-items">
+              <div>
+                <h4>General Semantic Scenarios</h4>
+                <p>
+                  Scenario-specific constraints such as penalty regions, traffic-police instructions.
+                </p>
+              </div>
+              <div>
+                <h4>Honk-sensitive Scenarios</h4>
+                <p>
+                  Cases where honking can help make progress, but can also be inappropriate around specific agents.
+                </p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section results-section" id="results">
+        <div class="section-title compact">
+          <p class="kicker">Results</p>
+          <h2>Planning Results</h2>
+        </div>
+        <div class="result-block">
+          <h3>Collision-prone Track</h3>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Method</th>
+                  <th>Prog. ↑</th>
+                  <th>Safe. ↑</th>
+                  <th>Overall ↑</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="category-row">
+                  <td>Rule-based</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>IDM</td>
+                  <td>0.818</td>
+                  <td>0.507</td>
+                  <td>0.409</td>
+                </tr>
+                <tr>
+                  <td>PDM Closed</td>
+                  <td>0.855</td>
+                  <td>0.767</td>
+                  <td>0.644</td>
+                </tr>
+                <tr class="category-row">
+                  <td>Learning-based &amp; Hybrid</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>UrbanDriver</td>
+                  <td>0.890</td>
+                  <td>0.301</td>
+                  <td>0.242</td>
+                </tr>
+                <tr>
+                  <td>GC-PGP</td>
+                  <td>0.604</td>
+                  <td>0.432</td>
+                  <td>0.258</td>
+                </tr>
+                <tr>
+                  <td>PlanTF</td>
+                  <td>0.861</td>
+                  <td>0.459</td>
+                  <td>0.380</td>
+                </tr>
+                <tr>
+                  <td>Diffusion Planner</td>
+                  <td><strong>0.935</strong></td>
+                  <td>0.425</td>
+                  <td>0.373</td>
+                </tr>
+                <tr class="highlight-row">
+                  <td>PDM Hybrid</td>
+                  <td>0.856</td>
+                  <td><strong>0.774</strong></td>
+                  <td><strong>0.651</strong></td>
+                </tr>
+                <tr>
+                  <td>PLUTO</td>
+                  <td>0.924</td>
+                  <td>0.664</td>
+                  <td>0.616</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="result-block">
+          <h3>Semantic Track</h3>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Method</th>
+                  <th>Gen. Sem. Prog. ↑</th>
+                  <th>Gen. Sem. Penalty ↓</th>
+                  <th>Honk Prog. ↑</th>
+                  <th>Honk Penalty ↓</th>
+                  <th>Overall ↑</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>IDM</td>
+                  <td>0.580</td>
+                  <td>0.574</td>
+                  <td>0.499</td>
+                  <td><strong>0.000</strong></td>
+                  <td>0.353</td>
+                </tr>
+                <tr class="highlight-row">
+                  <td>IDM + LLM</td>
+                  <td><strong>0.600</strong></td>
+                  <td>0.561</td>
+                  <td><strong>0.562</strong></td>
+                  <td>0.024</td>
+                  <td><strong>0.389</strong></td>
+                </tr>
+                <tr>
+                  <td>IDM + LLM (stop)</td>
+                  <td>0.395</td>
+                  <td><strong>0.146</strong></td>
+                  <td>0.335</td>
+                  <td>0.004</td>
+                  <td>0.309</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="footer">
+      <p>SemanticPlan</p>
+    </footer>
+  </body>
+</html>
